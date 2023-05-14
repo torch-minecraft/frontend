@@ -1,6 +1,6 @@
 import api from "./api";
 
 export default async function ping() {
-  const response = await api.get(`/api/v1/ping`);
+  const response = await api.get(`/ping`);
   return response.data;
 }
