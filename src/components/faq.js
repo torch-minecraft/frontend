@@ -1,15 +1,20 @@
-import { Box, Button, Divider, Stack, Typography } from "@mui/material";
+import {
+  ArrowDropDown,
+  ArrowDropUp,
+  CheckCircle,
+  Help,
+} from "@mui/icons-material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import { useState } from "react";
-import { ArrowDropDown, ArrowDropUp, Help, CheckCircle } from "@mui/icons-material";
-import Title from "./title";
+import { Questions } from "../app/faq";
 
 function FaqSection(props) {
   const { question, answer } = props;
   const [open, setOpen] = useState(false);
 
   return (
-    <Box border={1} borderRadius={1} borderColor="search.main">
+    <Box border={1} borderRadius={1} borderColor="search.main" marginBottom={2}>
       <Button
         fullWidth
         color="custom"
@@ -56,7 +61,7 @@ function FaqSection(props) {
         <Stack direction="row" spacing={2}>
           <CheckCircle
             sx={{
-              color: "primary.main",
+              color: "custom.main",
             }}
           />
           <Typography color="white">{answer}</Typography>
@@ -82,10 +87,9 @@ export default function Faq() {
       >
         A collection of answers to commonly asked questions
       </Box>
-      <FaqSection
-        question="What is Torch?"
-        answer="Torch is a Minecraft server status website. You can search the status of any online Minecraft server, and instantly get relavent information."
-      />
+      {Questions.map((question) => (
+        <FaqSection question={question.question} answer={question.answer} />
+      ))}
     </Container>
   );
 }
