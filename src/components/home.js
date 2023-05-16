@@ -134,19 +134,6 @@ export default function Home() {
         </Box>
       </Stack>
       <Box component="p" color="inherit" fontSize={20}>
-        Welcome to Torch, a Minecraft server status querying
-        website! Here, you can search for any online Minecraft server and get
-        real-time information on the server's status, including the MOTD, number
-        of players, server version, and many more. This site is perfect for
-        Minecraft players who want to find new servers to play on or for server
-        owners who want to keep track of their server's status.
-      </Box>
-      <Box component="p" color="inherit" fontSize={20}>
-        As a high school student who loves Minecraft, I wanted to
-        create a project that combined my passion for the game with my interest
-        in web development. This site was a fun way for me to practice ReactJS
-        and GoLang skills while also providing a useful tool for the Minecraft
-        community.
       </Box>
     </Container>
   );
