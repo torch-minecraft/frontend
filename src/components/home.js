@@ -122,18 +122,21 @@ export default function Home() {
           marginBottom: 2,
         }}
       />
-      <Stack direction="row" spacing={2} marginBottom={3} marginTop={5}>
-        <InfoIcon
-          color="primary.light"
-          sx={{
-            fontSize: 40,
-          }}
-        />
-        <Box component="h2" color="inherit" fontSize={25}>
-          About
-        </Box>
-      </Stack>
+      <Box component="h2" color="inherit" fontSize={45}>
+        About
+      </Box>
+      <Box
+        component="p"
+        color="inherit"
+        fontSize={25}
+        sx={{
+          marginTop: -6,
+        }}
+      >
+        A quick understanding of Torch and what we do
+      </Box>
       <Box component="p" color="inherit" fontSize={20}>
+        To be completed
       </Box>
     </Container>
   );

@@ -9,6 +9,7 @@ import {
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Title from "./title";
 
 export default function Search(props) {
   const nav = useNavigate();
@@ -50,55 +51,7 @@ export default function Search(props) {
 
   return (
     <>
-      <Box
-        component="p"
-        sx={{
-          fontFamily: "Poppins, sans-serif",
-          fontSize: "50px",
-          fontWeight: "bold",
-          marginBottom: "-20px",
-          paddingTop: "40px",
-        }}
-      >
-        <Box
-          component="span"
-          sx={{
-            color: "primary.main",
-            fontSize: "70px",
-            textDecoration: "underline",
-          }}
-        >
-          t
-        </Box>
-        <Box
-          component="span"
-          sx={{
-            color: "#fbd457",
-            fontSize: "60px",
-            fontWeight: "bold",
-          }}
-        >
-          orch
-        </Box>
-      </Box>
-      <Box
-        component="p"
-        sx={{
-          color: "inherit",
-          fontFamily: "Kanit, sans-serif",
-          fontSize: "20px",
-          fontWeight: 100,
-          marginBottom: "20px",
-        }}
-      >
-        Easily get the status of your favorite Minecraft servers.
-      </Box>
-      <Divider
-        sx={{
-          paddingBottom: "10px",
-          marginBottom: "40px",
-        }}
-      />
+      <Title />
       <Grid2 container spacing={2}>
         <Grid2 xs={12} md={2}>
           <Select
