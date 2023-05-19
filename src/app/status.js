@@ -1,6 +1,6 @@
 import api from "./api";
 
-export default async function fetchData(host, port, type) {
+export default async function status(host, port, type) {
   try {
     type = type.toLowerCase();
     const response = await api.get(

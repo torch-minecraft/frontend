@@ -13,7 +13,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight";
 import { stackoverflowDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import fetchData from "../../app/fetchData";
+import fetchData from "../../app/status";
 import Search from "../search";
 import Copy from "../util/copy";
 import JavaResult from "./javaResult";
