@@ -1,4 +1,4 @@
-export const Servers = {
+export const servers = {
   "java": [
     {
       "name": "OPBlocks",

@@ -1,4 +1,4 @@
-export const Questions = [
+export const questions = [
   {
     "question": "What is Torch?",
     "answer": "Torch is a Minecraft server status checker allowing you to easily check the status of your favorite Minecraft servers."

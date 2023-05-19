@@ -8,7 +8,7 @@ import {
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import { useState } from "react";
-import { Questions } from "../app/faq";
+import { questions } from "../app/faq";
 import Title from "./title";
 import InfoSection from "./info";
 
@@ -79,7 +79,7 @@ export default function Faq() {
     <Container maxWidth="xl">
       <Title />
       <InfoSection title="FAQ" subtitle="A collection of answers to commonly asked questions" />
-      {Questions.map((question) => (
+      {questions.map((question) => (
         <FaqSection question={question.question} answer={question.answer} />
       ))}
     </Container>

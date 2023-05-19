@@ -10,7 +10,7 @@ import {
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Servers } from "../app/servers";
+import { servers } from "../app/servers";
 import Search from "./search";
 import Info from "./info";
 
@@ -21,7 +21,7 @@ function shuffleArray(array) {
   }
 }
 
-const servers = Servers;
+const servers = servers;
 
 export default function Home() {
   const nav = useNavigate();
