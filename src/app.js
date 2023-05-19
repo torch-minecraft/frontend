@@ -16,6 +16,8 @@ import NotFound from "./components/notfound";
 import SearchResult from "./components/search/searchResult";
 import { theme } from "./theme";
 
+import "./app.css";
+
 function AppContent() {
   const location = useLocation();
   const isApi = location.pathname.includes("/api/v");

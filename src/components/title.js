@@ -1,7 +1,4 @@
-import {
-  Box,
-  Divider
-} from "@mui/material";
+import { Box, Divider } from "@mui/material";
 
 export default function Title() {
   return (
@@ -9,7 +6,6 @@ export default function Title() {
       <Box
         component="p"
         sx={{
-          fontFamily: "Poppins, sans-serif",
           fontSize: "50px",
           fontWeight: "bold",
           marginBottom: "-20px",
@@ -39,9 +35,9 @@ export default function Title() {
       </Box>
       <Box
         component="p"
+        fontFamily="Montserrat, sans-serif"
         sx={{
           color: "inherit",
-          fontFamily: "Kanit, sans-serif",
           fontSize: "20px",
           fontWeight: 100,
           marginBottom: "20px",

@@ -12,7 +12,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Servers } from "../app/servers";
 import Search from "./search";
-import InfoIcon from "@mui/icons-material/Info";
+import Info from "./info";
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -122,22 +122,7 @@ export default function Home() {
           marginBottom: 2,
         }}
       />
-      <Box component="h2" color="inherit" fontSize={45}>
-        About
-      </Box>
-      <Box
-        component="p"
-        color="inherit"
-        fontSize={25}
-        sx={{
-          marginTop: -6,
-        }}
-      >
-        A quick understanding of Torch and what we do
-      </Box>
-      <Box component="p" color="inherit" fontSize={20}>
-        To be completed
-      </Box>
+      <Info title="About" subtitle="A quick understanding of Torch and what we do" />
     </Container>
   );
 }

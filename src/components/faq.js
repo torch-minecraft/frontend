@@ -3,11 +3,14 @@ import {
   ArrowDropUp,
   CheckCircle,
   Help,
+  Info,
 } from "@mui/icons-material";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import { useState } from "react";
 import { Questions } from "../app/faq";
+import Title from "./title";
+import InfoSection from "./info";
 
 function FaqSection(props) {
   const { question, answer } = props;
@@ -74,19 +77,8 @@ function FaqSection(props) {
 export default function Faq() {
   return (
     <Container maxWidth="xl">
-      <Box component="h2" color="inherit" fontSize={45}>
-        FAQ
-      </Box>
-      <Box
-        component="p"
-        color="inherit"
-        fontSize={25}
-        sx={{
-          marginTop: -6,
-        }}
-      >
-        A collection of answers to commonly asked questions
-      </Box>
+      <Title />
+      <InfoSection title="FAQ" subtitle="A collection of answers to commonly asked questions" />
       {Questions.map((question) => (
         <FaqSection question={question.question} answer={question.answer} />
       ))}
