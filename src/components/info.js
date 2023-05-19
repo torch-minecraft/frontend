@@ -10,7 +10,7 @@ export default function info(props) {
         component="p"
         color="inherit"
         fontSize={25}
-        marginTop={-6}
+        marginTop={-5.5}
         fontFamily="Montserrat, sans-serif"
       >
         {props.subtitle}
