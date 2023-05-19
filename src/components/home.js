@@ -21,7 +21,7 @@ function shuffleArray(array) {
   }
 }
 
-const servers = servers;
+const serverList = servers;
 
 export default function Home() {
   const nav = useNavigate();
@@ -30,11 +30,11 @@ export default function Home() {
   const [bedrockServers, setBedrockServers] = useState([]);
 
   useEffect(() => {
-    shuffleArray(servers.bedrock);
-    shuffleArray(servers.java);
+    shuffleArray(serverList.bedrock);
+    shuffleArray(serverList.java);
 
-    setBedrockServers(servers.bedrock.slice(0, 4));
-    setJavaServers(servers.java.slice(0, 4));
+    setBedrockServers(serverList.bedrock.slice(0, 4));
+    setJavaServers(serverList.java.slice(0, 4));
   }, []);
 
   function serversDisplay(arr, type) {
