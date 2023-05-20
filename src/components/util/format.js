@@ -3,24 +3,6 @@ import React, { useEffect } from "react";
 const obfuscatedCharacters =
   "abcdeghmnopqrsuwxyABCDEFGHJKLMNOPQRSTUVWXYZ0123456789#$%&";
 
-export function formatted(string, customStyle) {
-  const regex = /(-{)(.*?)(}-)/g;
-  const words = string.split(regex);
-  return words.map((word, index) => {
-    if (word === "-{" || word === "}-") {
-      return null;
-    }
-    if (index > 0 && words[index - 1] === "-{") {
-      return (
-        <span key={index} style={customStyle}>
-          {word}
-        </span>
-      );
-    }
-    return <React.Fragment key={index}>{word}</React.Fragment>;
-  });
-}
-
 export default function MinecraftFormatted(props) {
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia(

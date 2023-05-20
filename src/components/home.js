@@ -6,6 +6,7 @@ import {
   Divider,
   Stack,
   Typography,
+  Link,
 } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import React, { useEffect, useState } from "react";
@@ -122,7 +123,45 @@ export default function Home() {
           marginBottom: 2,
         }}
       />
-      <Info title="About" subtitle="A quick understanding of Torch and what we do" />
+      <Info
+        title="About"
+        subtitle="A quick understanding of Torch and what we do"
+      />
+      <Typography>
+        Welcome to Torch, the premier online tool for Minecraft server
+        information lookup. Our platform allows you to quickly and easily access
+        information about any Java or Bedrock server. With our API, developers
+        can integrate Torch's powerful server lookup capabilities into their own
+        projects with ease. Our API boasts a short cache duration of just 2
+        minutes, ensuring that your data is always up-to-date.
+        <br />
+        <br />
+        At Torch, we pride ourselves on our cutting-edge technology. Our website
+        is built using React and Material-UI, while our API is built with Go. We
+        communicate with Minecraft servers using the official networking
+        protocol, ensuring that our data is always accurate and reliable. If
+        you're interested in contributing to the project, we encourage you to
+        check out our code on{" "}
+        <Link
+          href="https://github.com/orgs/torch-minecraft/repositories"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Github
+        </Link>{" "}
+        and join our community of developers.
+        <br />
+        <br />
+        If you're looking to use Torch's API in your project, head over to our{" "}
+        <Link href="/api">API</Link> page to learn more. Our API is designed to
+        be developer-friendly, with clear documentation and easy-to-use
+        endpoints. Whether you're building a bot to check server statuses or trying to obtain server icons, Torch's API has everything you need to get started.
+        <br />
+        <br />
+        We hope you enjoy using Torch as much as we've enjoyed building it. If
+        you have any questions or feedback, please don't hesitate to contact us.
+        Thank you for choosing Torch!
+      </Typography>
     </Container>
   );
 }

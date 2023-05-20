@@ -20,11 +20,6 @@ import { formatted } from "./util/format";
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
-const specialWordStyle = {
-  color: "#f9b31f",
-  fontFamily: "monospace",
-};
-
 function APISection(props) {
   return (
     <>
@@ -38,9 +33,7 @@ function APISection(props) {
         {props.title}
       </Box>
       <Divider />
-      <Box component="p" color="inherit" fontSize={18}>
-        {formatted(props.description, specialWordStyle)}
-      </Box>
+      {props.description}
     </>
   );
 }
@@ -84,9 +77,10 @@ function APIEndpoint(props) {
             marginBottom: 2,
           }}
         />
-        <Box component="p" color="inherit" fontSize={16} paddingLeft={2}>
+        {/* <Box component="p" color="inherit" fontSize={16} paddingLeft={2}>
           {formatted(props.description, specialWordStyle)}
-        </Box>
+        </Box> */}
+        {props.description}
         <Box
           display="flex"
           alignItems="center"

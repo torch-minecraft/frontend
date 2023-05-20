@@ -49,7 +49,7 @@ export default function Title() {
           marginBottom: "20px",
         }}
       >
-        {formatted("Light up the -{dark}-, easily get the status of your favorite Minecraft servers.", specialWordStyle)}
+        Light up the <span style={specialWordStyle}>dark</span>, easily get the status of your favorite Minecraft servers.
       </Box>
       <Divider
         sx={{

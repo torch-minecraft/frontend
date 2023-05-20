@@ -13,11 +13,6 @@ import Title from "./title";
 import InfoSection from "./info";
 import { formatted } from "./util/format";
 
-const specialWordStyle = {
-  color: "#f9b31f",
-  fontFamily: "monospace",
-};
-
 function FaqSection(props) {
   const { question, answer } = props;
   const [open, setOpen] = useState(false);
@@ -72,7 +67,7 @@ function FaqSection(props) {
               color: "custom.main",
             }}
           />
-          <Typography>{formatted(answer, specialWordStyle)}</Typography>
+          {answer}
         </Stack>
       </Box>
     </Box>
