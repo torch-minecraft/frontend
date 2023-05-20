@@ -60,6 +60,7 @@ export default function Home() {
                   alignItems: "center",
                   justifyContent: "flex-start",
                 }}
+                padding={{ xs: 1, sm: 2 }}
               >
                 <Box display="flex" alignItems="center">
                   <Chip
@@ -90,6 +91,7 @@ export default function Home() {
                   fontSize={12}
                   sx={{
                     marginLeft: { sm: "auto" },
+                    marginTop: { xs: 1, sm: 0 },
                   }}
                 >
                   {server.ip}
