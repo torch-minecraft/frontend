@@ -63,7 +63,7 @@ function Header() {
               TORCH
             </Typography>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, alignItems: "center" }}>
             {pages.map((page) => (
               <Button
                 key={page}
@@ -73,6 +73,7 @@ function Header() {
                   color: "white",
                   display: "block",
                   textAlign: "center",
+                  fontWeight: "bold",
                 }}
                 href={page === "Home" ? "/" : `/${page.toLowerCase()}`}
               >
