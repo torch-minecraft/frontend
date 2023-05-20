@@ -98,49 +98,6 @@ export default function Home() {
                   {server.ip}
                 </Typography>
               </Grid2>
-
-              {/* <Grid2
-                xs={12}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                <Chip
-                  color={type === "java" ? "primary" : "secondary"}
-                  label={type}
-                  variant="outlined"
-                  size="small"
-                  sx={{
-                    fontFamily: "monospace",
-                  }}
-                />
-                <Typography
-                  variant="h6"
-                  fontSize={"17px"}
-                  color="custom.text"
-                  fontFamily="roboto, sans-serif"
-                  fontWeight="bold"
-                  sx={{
-                    marginLeft: "10px",
-                  }}
-                >
-                  {server.name}
-                </Typography>
-              </Grid2>
-              <Grid2
-                xs={12}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "flex-end",
-                }}
-                component="p"
-                fontFamily="Minecraft"
-                fontSize={12}
-              >
-                {server.ip}
-              </Grid2> */}
             </Button>
           ))}
         </Stack>
