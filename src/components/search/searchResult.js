@@ -19,6 +19,7 @@ import Copy from "../util/copy";
 import JavaResult from "./javaResult";
 import Offline from "./offline";
 import BedrockResult from "./bedrockResult";
+import status from "../../app/status";
 
 export function renderComponents(components) {
   return (
@@ -60,9 +61,6 @@ export default function SearchResult() {
 
   const [data, setData] = useState({});
 
-  const [usedHost, setUsedHost] = useState("");
-  const [usedPort, setUsedPort] = useState(0);
-
   const [apiDropdown, setApiDropdown] = useState(false);
 
   const { serverType, ip } = useParams();
@@ -70,46 +68,16 @@ export default function SearchResult() {
   const location = useLocation();
 
   const apiUrl =
-    process.env.REACT_APP_API_URL +
-    "status/" +
-    serverType +
-    "?host=" +
-    ip +
-    "&port=" +
-    usedPort;
+    process.env.REACT_APP_API_URL + "status/" + serverType + "/" + ip;
 
-  async function getData() {
-    let port = 0;
-    if (serverType === "bedrock") {
-      port = 19132;
-    } else {
-      port = 25565;
-    }
-
-    let newIp = ip;
-
-    if (ip.includes(":")) {
-      let split = ip.split(":");
-      newIp = split[0];
-      port = split[1];
-    }
-
-    if (port < 0 || port > 65535) {
-      setOnline(false);
-      setFinishedLoading(true);
-      return;
-    }
-
-    setUsedHost(newIp);
-    setUsedPort(port);
-
-    return await fetchData(newIp, port, serverType);
+  async function fetchData() {
+    return await status(ip, serverType);
   }
 
   useEffect(() => {
     setFinishedLoading(false);
     (async () => {
-      const status = await getData();
+      const status = await fetchData();
       if (
         status === null ||
         status === undefined ||
@@ -124,10 +92,6 @@ export default function SearchResult() {
       setFinishedLoading(true);
     })();
   }, [location.pathname]);
-
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
 
   return (
     <Container
@@ -162,7 +126,7 @@ export default function SearchResult() {
                   <JavaResult data={data} />
                 )
               ) : (
-                <Offline host={usedHost} port={usedPort} />
+                <Offline data={data} />
               )}
             </Box>
           </Box>
@@ -227,11 +191,7 @@ export default function SearchResult() {
                       fontWeight: "bold",
                     }}
                   />
-                  <Typography
-                    component="p"
-                    marginLeft={1}
-                    color="custom.main"
-                  >
+                  <Typography component="p" marginLeft={1} color="custom.main">
                     {apiUrl}
                   </Typography>
                 </Box>

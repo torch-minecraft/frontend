@@ -1,10 +1,10 @@
 import api from "./api";
 
-export default async function status(host, port, type) {
+export default async function status(ip, type) {
   try {
     type = type.toLowerCase();
     const response = await api.get(
-      `/status/${type}?host=${host}&port=${port}`
+      `/status/${type}/${ip}`
     );
     return response.data;
   } catch (error) {
