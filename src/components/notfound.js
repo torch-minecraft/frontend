@@ -26,7 +26,12 @@ export default function NotFound() {
             window.location.href = "/";
           }}
         >
-          <Typography variant="h2" fontFamily="Poppins" fontSize={20} padding={2}>
+          <Typography
+            variant="h2"
+            fontFamily="Poppins"
+            fontSize={20}
+            padding={2}
+          >
             Let's get you back home
           </Typography>
         </Button>
