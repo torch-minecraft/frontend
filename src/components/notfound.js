@@ -22,6 +22,9 @@ export default function NotFound() {
           }}
           variant="outlined"
           size="large"
+          onClick={() => {
+            window.location.href = "/";
+          }}
         >
           <Typography variant="h2" fontFamily="Poppins" fontSize={20} padding={2}>
             Let's get you back home
