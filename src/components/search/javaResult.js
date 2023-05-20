@@ -27,7 +27,7 @@ export default function JavaResult(props) {
         {data.port}
       </Typography>
     ),
-    Favicon: <Box component={"img"} src={data.favicon} />,
+    Icon: <Box component={"img"} src={data.icon} />,
     MOTD: (
       <Box
         backgroundColor="search.background"
@@ -51,9 +51,11 @@ export default function JavaResult(props) {
       </Typography>
     ),
     Players: (
-      <Typography component="p" fontFamily="Minecraft" fontSize={13}>
-        {data.players.online} / {data.players.max}
-      </Typography>
+      <Box>
+        <Typography component="p" fontFamily="Minecraft" fontSize={13}>
+          {data.players.online} / {data.players.max}
+        </Typography>
+      </Box>
     ),
     SRV_Record: (
       <Typography component="p" fontFamily="Minecraft" fontSize={13}>

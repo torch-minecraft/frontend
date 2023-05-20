@@ -16,6 +16,7 @@ import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlig
 import { stackoverflowDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import React, { useState } from "react";
 import { endpoints, sections } from "../app/api";
+import { formatted } from "./util/format";
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -23,24 +24,6 @@ const specialWordStyle = {
   color: "#f9b31f",
   fontFamily: "monospace",
 };
-
-function format(string) {
-  const regex = /(-{)(.*?)(}-)/g;
-  const words = string.split(regex);
-  return words.map((word, index) => {
-    if (word === "-{" || word === "}-") {
-      return null;
-    }
-    if (index > 0 && words[index - 1] === "-{") {
-      return (
-        <span key={index} style={specialWordStyle}>
-          {word}
-        </span>
-      );
-    }
-    return <React.Fragment key={index}>{word}</React.Fragment>;
-  });
-}
 
 function APISection(props) {
   return (
@@ -54,9 +37,9 @@ function APISection(props) {
       >
         {props.title}
       </Box>
-      <Divider marginBottom={1} />
+      <Divider />
       <Box component="p" color="inherit" fontSize={18}>
-        {format(props.description)}
+        {formatted(props.description, specialWordStyle)}
       </Box>
     </>
   );
@@ -102,7 +85,7 @@ function APIEndpoint(props) {
           }}
         />
         <Box component="p" color="inherit" fontSize={16} paddingLeft={2}>
-          {format(props.description)}
+          {formatted(props.description, specialWordStyle)}
         </Box>
         <Box
           display="flex"

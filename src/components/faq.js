@@ -11,6 +11,12 @@ import { useState } from "react";
 import { questions } from "../app/faq";
 import Title from "./title";
 import InfoSection from "./info";
+import { formatted } from "./util/format";
+
+const specialWordStyle = {
+  color: "#f9b31f",
+  fontFamily: "monospace",
+};
 
 function FaqSection(props) {
   const { question, answer } = props;
@@ -57,7 +63,6 @@ function FaqSection(props) {
         display={open ? "flex" : "none"}
         padding={2}
         alignItems="center"
-        backgroundColor="search.background"
         borderTop={1}
         borderColor="search.main"
       >
@@ -67,7 +72,7 @@ function FaqSection(props) {
               color: "custom.main",
             }}
           />
-          <Typography color="white">{answer}</Typography>
+          <Typography>{formatted(answer, specialWordStyle)}</Typography>
         </Stack>
       </Box>
     </Box>
@@ -78,7 +83,10 @@ export default function Faq() {
   return (
     <Container maxWidth="xl">
       <Title />
-      <InfoSection title="FAQ" subtitle="A collection of answers to commonly asked questions" />
+      <InfoSection
+        title="FAQ"
+        subtitle="A collection of answers to commonly asked questions"
+      />
       {questions.map((question) => (
         <FaqSection question={question.question} answer={question.answer} />
       ))}

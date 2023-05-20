@@ -59,10 +59,6 @@ export const servers = {
       "ip": "play.nethergames.org",
     },
     {
-      "name": "MCSMP",
-      "ip": "mcsmp.net",
-    },
-    {
       "name": "CraftersMC",
       "ip": "play.craftersmc.net",
     },

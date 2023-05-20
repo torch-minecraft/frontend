@@ -1,7 +1,25 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
 const obfuscatedCharacters =
   "abcdeghmnopqrsuwxyABCDEFGHJKLMNOPQRSTUVWXYZ0123456789#$%&";
+
+export function formatted(string, customStyle) {
+  const regex = /(-{)(.*?)(}-)/g;
+  const words = string.split(regex);
+  return words.map((word, index) => {
+    if (word === "-{" || word === "}-") {
+      return null;
+    }
+    if (index > 0 && words[index - 1] === "-{") {
+      return (
+        <span key={index} style={customStyle}>
+          {word}
+        </span>
+      );
+    }
+    return <React.Fragment key={index}>{word}</React.Fragment>;
+  });
+}
 
 export default function MinecraftFormatted(props) {
   useEffect(() => {
@@ -9,7 +27,7 @@ export default function MinecraftFormatted(props) {
       "(prefers-reduced-motion: reduce)"
     );
     const obfuscated = document.getElementsByClassName("minecraft-obfuscated");
-    
+
     function update() {
       if (prefersReducedMotion.matches) return;
       for (let i = 0; i < obfuscated.length; i++) {

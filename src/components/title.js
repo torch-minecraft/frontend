@@ -1,4 +1,10 @@
 import { Box, Divider } from "@mui/material";
+import React from "react";
+import { formatted } from "./util/format";
+
+const specialWordStyle = {
+  color: "#fbd457",
+};
 
 export default function Title() {
   return (
@@ -43,8 +49,7 @@ export default function Title() {
           marginBottom: "20px",
         }}
       >
-        Light up the dark, easily get the status of your favorite Minecraft
-        servers.
+        {formatted("Light up the -{dark}-, easily get the status of your favorite Minecraft servers.", specialWordStyle)}
       </Box>
       <Divider
         sx={{
