@@ -68,7 +68,7 @@ export default function JavaResult(props) {
           {data.players.sample.length > 0 && (
             <Button
               variant="outlined"
-              color="white"
+              color="w"
               endIcon={openPlayerList ? <ArrowDropDown /> : <ArrowDropUp />}
               onClick={() => setOpenPlayerList(!openPlayerList)}
               sx={{

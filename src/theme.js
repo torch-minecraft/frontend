@@ -22,7 +22,7 @@ export const theme = createTheme({
       background: "#1E1E1E",
     },
 
-    white: {
+    w: {
       main: "#ffffff",
     }
   },
