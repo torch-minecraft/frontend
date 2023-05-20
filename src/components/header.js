@@ -91,7 +91,7 @@ function Header() {
             size="large"
             edge="start"
             color="inherit"
-            onClick={() => window.open("https://github.com/", "_blank")}
+            onClick={() => window.open("https://github.com/orgs/torch-minecraft/repositories", "_blank")}
           >
             <GitHubIcon />
           </IconButton>
