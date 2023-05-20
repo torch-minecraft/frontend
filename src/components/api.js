@@ -77,17 +77,8 @@ function APIEndpoint(props) {
             marginBottom: 2,
           }}
         />
-        {/* <Box component="p" color="inherit" fontSize={16} paddingLeft={2}>
-          {formatted(props.description, specialWordStyle)}
-        </Box> */}
         {props.description}
-        <Box
-          display="flex"
-          alignItems="center"
-          justifyContent="flex-start"
-          paddingLeft={2}
-          borderRadius={1.5}
-        >
+        <Stack direction="row" paddingLeft={2}>
           <Chip
             size="small"
             label="GET"
@@ -97,26 +88,26 @@ function APIEndpoint(props) {
               fontSize: 14,
             }}
           />
-          <Typography
-            component="p"
-            marginLeft={1}
-            color="custom.main"
-            fontSize={16}
-          >
-            {apiUrl + props.route}
-          </Typography>
-        </Box>
+          <Box width="75%">
+            <Typography
+              component="p"
+              marginLeft={1}
+              color="custom.main"
+              fontSize={16}
+              sx={{
+                wordWrap: "break-word",
+              }}
+            >
+              {apiUrl + props.route}
+            </Typography>
+          </Box>
+        </Stack>
         <Divider
           sx={{
             marginTop: 2,
           }}
         />
-        <Typography
-          component="h1"
-          fontWeight="bold"
-          fontSize={18}
-          padding={2}
-        >
+        <Typography component="h1" fontWeight="bold" fontSize={18} padding={2}>
           Example Response
         </Typography>
         <Box component="div" position="relative" padding={2} marginTop={-4}>

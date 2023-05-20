@@ -51,18 +51,59 @@ export default function Home() {
               onClick={() => {
                 nav(`/search/${type}/${server.ip}`);
               }}
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "flex-start",
-              }}
             >
               <Grid2
                 xs={12}
                 sx={{
                   display: "flex",
+                  flexDirection: { xs: "column", sm: "row" },
                   alignItems: "center",
                   justifyContent: "flex-start",
+                }}
+              >
+                <Box
+                  display="flex"
+                  alignItems="center"
+                >
+                  <Chip
+                    color={type === "java" ? "primary" : "secondary"}
+                    label={type}
+                    variant="outlined"
+                    size="small"
+                    sx={{
+                      fontFamily: "monospace",
+                    }}
+                  />
+                  <Typography
+                    variant="h6"
+                    fontSize={"17px"}
+                    color="custom.text"
+                    fontFamily="roboto, sans-serif"
+                    fontWeight="bold"
+                    sx={{
+                      marginLeft: "10px",
+                    }}
+                  >
+                    {server.name}
+                  </Typography>
+                </Box>
+                <Typography
+                  component="p"
+                  fontFamily="Minecraft"
+                  fontSize={12}
+                  sx={{
+                    marginLeft: { sm: "auto" },
+                  }}
+                >
+                  {server.ip}
+                </Typography>
+              </Grid2>
+
+              {/* <Grid2
+                xs={12}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
                 }}
               >
                 <Chip
@@ -99,7 +140,7 @@ export default function Home() {
                 fontSize={12}
               >
                 {server.ip}
-              </Grid2>
+              </Grid2> */}
             </Button>
           ))}
         </Stack>
@@ -155,7 +196,9 @@ export default function Home() {
         If you're looking to use Torch's API in your project, head over to our{" "}
         <Link href="/api">API</Link> page to learn more. Our API is designed to
         be developer-friendly, with clear documentation and easy-to-use
-        endpoints. Whether you're building a bot to check server statuses or trying to obtain server icons, Torch's API has everything you need to get started.
+        endpoints. Whether you're building a bot to check server statuses or
+        trying to obtain server icons, Torch's API has everything you need to
+        get started.
         <br />
         <br />
         We hope you enjoy using Torch as much as we've enjoyed building it. If

@@ -17,12 +17,12 @@ export default function Offline(props) {
     ),
     Host: (
       <Typography component="p" fontFamily="Minecraft" fontSize={13}>
-        {props.data.host}
+        {props.data == null ? "Unknown" : props.data.host}
       </Typography>
     ),
     Port: (
       <Typography component="p" fontFamily="Minecraft" fontSize={13}>
-        {props.data.port}
+        {props.data == null ? "25565" : props.data.port}
       </Typography>
     ),
   };

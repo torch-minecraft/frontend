@@ -75,14 +75,6 @@ export const servers = {
       "ip": "play.fallentech.io",
     },
     {
-      "name": "Lifeboat",
-      "ip": "mc.build.lifeboat.network",
-    },
-    {
-      "name": "LifeBlock",
-      "ip": "play-lifeblock.net",
-    },
-    {
       "name": "Empirials",
       "ip": "play.empirials.net",
     },

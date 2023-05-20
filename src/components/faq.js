@@ -11,7 +11,6 @@ import { useState } from "react";
 import { questions } from "../app/faq";
 import Title from "./title";
 import InfoSection from "./info";
-import { formatted } from "./util/format";
 
 function FaqSection(props) {
   const { question, answer } = props;
@@ -41,16 +40,9 @@ function FaqSection(props) {
             width: "100%",
           }}
         >
-          <Stack direction="row" spacing={2}>
-            <Help
-              sx={{
-                color: "primary.main",
-              }}
-            />
-            <Typography color="white" fontWeight="bold">
-              {question}
-            </Typography>
-          </Stack>
+          <Typography color="white" fontWeight="bold">
+            {question}
+          </Typography>
           {open ? <ArrowDropUp /> : <ArrowDropDown />}
         </Box>
       </Button>
@@ -61,14 +53,7 @@ function FaqSection(props) {
         borderTop={1}
         borderColor="search.main"
       >
-        <Stack direction="row" spacing={2}>
-          <CheckCircle
-            sx={{
-              color: "custom.main",
-            }}
-          />
-          {answer}
-        </Stack>
+        {answer}
       </Box>
     </Box>
   );

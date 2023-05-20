@@ -72,7 +72,7 @@ export const endpoints = [
     title: "Java Server Status",
     route: "status/java/<ip>",
     description: (
-      <Typography fontSize={16} paddingLeft={2} marginBottom={2}>
+      <Typography fontSize={16} paddingLeft={2} marginBottom={2} paddingRight={2}>
         Returns the status of a Minecraft Java server.{" "}
         <span style={specialWordStyle}>{"<ip>"}</span> should be replaced with
         the server's hostname or IP address. A valid IP address can be{" "}
@@ -121,7 +121,7 @@ export const endpoints = [
     title: "Bedrock Server Status",
     route: "status/bedrock/<ip>",
     description: (
-      <Typography fontSize={16} marginBottom={2}>
+      <Typography fontSize={16} marginBottom={2} paddingLeft={2} paddingRight={2}>
         Returns the status of a Minecraft Bedrock server.{" "}
         <span style={specialWordStyle}>{"<ip>"}</span> should be replaced with
         the server's hostname or IP address. A valid IP address can be{" "}
@@ -170,7 +170,7 @@ export const endpoints = [
     title: "Server Icon",
     route: "icon/<ip>",
     description: (
-      <Typography fontSize={16} marginBottom={2}>
+      <Typography fontSize={16} marginBottom={2} paddingLeft={2} paddingRight={2}>
         Returns the icon data of a Java Minecraft server in{" "}
         <span style={specialWordStyle}>base64</span>. If the server doesn't have
         an icon set or the server is offline, the default Minecraft server icon
@@ -192,7 +192,7 @@ export const endpoints = [
     title: "SRV Record",
     route: "srv/<host>",
     description: (
-      <Typography fontSize={16} marginBottom={2}>
+      <Typography fontSize={16} marginBottom={2} paddingLeft={2} paddingRight={2}>
         Returns the SRV redirect for the given Minecraft Java server host. If
         the host is not a SRV record, it will return the host as the IP and the
         port as 25565. A valid host would be{" "}

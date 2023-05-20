@@ -6,6 +6,7 @@ import {
   CircularProgress,
   Container,
   Divider,
+  Stack,
   Typography,
 } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
@@ -176,13 +177,7 @@ export default function SearchResult() {
                     marginBottom: 2,
                   }}
                 />
-                <Box
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="flex-start"
-                  paddingLeft={2}
-                  borderRadius={1.5}
-                >
+                <Stack direction="row" paddingLeft={2}>
                   <Chip
                     size="small"
                     label="GET"
@@ -191,10 +186,19 @@ export default function SearchResult() {
                       fontWeight: "bold",
                     }}
                   />
-                  <Typography component="p" marginLeft={1} color="custom.main">
-                    {apiUrl}
-                  </Typography>
-                </Box>
+                  <Box width="75%">
+                    <Typography
+                      component="p"
+                      marginLeft={1}
+                      color="custom.main"
+                      sx={{
+                        wordWrap: "break-word",
+                      }}
+                    >
+                      {apiUrl}
+                    </Typography>
+                  </Box>
+                </Stack>
                 <Divider
                   sx={{
                     marginTop: 2,
