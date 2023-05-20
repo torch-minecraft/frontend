@@ -1,8 +1,8 @@
+import { ArrowDropDown, ArrowDropUp } from "@mui/icons-material";
 import { Box, Button, Chip, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
 import MinecraftFormatted from "../util/format";
 import { renderComponents } from "./searchResult";
-import { useEffect, useState } from "react";
-import { ArrowDropDown, ArrowDropUp } from "@mui/icons-material";
 
 export default function JavaResult(props) {
   const { data } = props;
@@ -11,7 +11,6 @@ export default function JavaResult(props) {
 
   useEffect(() => {
     setOpenPlayerList(false);
-    console.log(data.players.sample);
   }, []);
 
   const components = {
@@ -80,31 +79,34 @@ export default function JavaResult(props) {
             </Button>
           )}
         </Box>
-          {openPlayerList && (
-            <Box
-              display="flex"
-              flexDirection="column"
-              alignItems="flex-start"
-              marginTop={2}
-              backgroundColor="search.background"
-              borderRadius={1}
-              paddingLeft={4}
-            >
-              {data.players.sample.map((player) => (
-                console.log(player),
-                <Typography
-                  component="p"
-                  fontFamily="Minecraft"
-                  fontSize={13}
-                  key={player.id}
-                  lineHeight={2}
-                  letterSpacing={0.5}
-                >
-                  <MinecraftFormatted html={player.name.html} />
-                </Typography>
-              ))}
-            </Box>
-          )}
+        {openPlayerList && (
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="flex-start"
+            marginTop={2}
+            backgroundColor="search.background"
+            borderRadius={1}
+            paddingLeft={4}
+          >
+            {data.players.sample.map(
+              (player) => (
+                (
+                  <Typography
+                    component="p"
+                    fontFamily="Minecraft"
+                    fontSize={13}
+                    key={player.id}
+                    lineHeight={2}
+                    letterSpacing={0.5}
+                  >
+                    <MinecraftFormatted html={player.name.html} />
+                  </Typography>
+                )
+              )
+            )}
+          </Box>
+        )}
       </Box>
     ),
     SRV_Record: (

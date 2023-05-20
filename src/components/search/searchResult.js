@@ -14,13 +14,12 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight";
 import { stackoverflowDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import fetchData from "../../app/status";
+import status from "../../app/status";
 import Search from "../search";
 import Copy from "../util/copy";
+import BedrockResult from "./bedrockResult";
 import JavaResult from "./javaResult";
 import Offline from "./offline";
-import BedrockResult from "./bedrockResult";
-import status from "../../app/status";
 
 export function renderComponents(components) {
   return (

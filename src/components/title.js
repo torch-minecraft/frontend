@@ -1,6 +1,5 @@
 import { Box, Divider } from "@mui/material";
 import React from "react";
-import { formatted } from "./util/format";
 
 const specialWordStyle = {
   color: "#fbd457",

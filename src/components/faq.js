@@ -1,16 +1,13 @@
 import {
   ArrowDropDown,
-  ArrowDropUp,
-  CheckCircle,
-  Help,
-  Info,
+  ArrowDropUp
 } from "@mui/icons-material";
-import { Box, Button, Stack, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import { useState } from "react";
 import { questions } from "../app/faq";
-import Title from "./title";
 import InfoSection from "./info";
+import Title from "./title";
 
 function FaqSection(props) {
   const { question, answer } = props;

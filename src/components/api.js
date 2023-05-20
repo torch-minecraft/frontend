@@ -1,3 +1,4 @@
+import { ArrowDropDown, ArrowDropUp } from "@mui/icons-material";
 import {
   Box,
   Button,
@@ -5,18 +6,15 @@ import {
   Container,
   Divider,
   Stack,
-  Tooltip,
-  Typography,
+  Typography
 } from "@mui/material";
-import Title from "./title";
-import Info from "./info";
-import { ArrowDropDown, ArrowDropUp } from "@mui/icons-material";
-import Copy from "./util/copy";
+import React, { useState } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight";
 import { stackoverflowDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import React, { useState } from "react";
 import { endpoints, sections } from "../app/api";
-import { formatted } from "./util/format";
+import Info from "./info";
+import Title from "./title";
+import Copy from "./util/copy";
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
