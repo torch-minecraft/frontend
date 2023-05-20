@@ -61,5 +61,13 @@ export const questions = [
         Minecraft servers do not send a full list of all online players. They send a list limited to 12 players, picked at random. Most public servers either have this feature disabled, or modify the player names to show custom messages.
       </Typography>
     )
+  },
+  {
+    "question": "Where is Torch and the Torch API hosted?",
+    "answer": (
+      <Typography>
+        The Torcch website and Torch API are both hosted on the East Coast in Ohio.
+      </Typography>
+    )
   }
 ]
