@@ -1,9 +1,9 @@
 import api from "./api";
 
-export default async function lookupSrv(host) {
+export default async function srv(host) {
   try {
     const response = await api.get(
-      `/srv?host=${host}`
+      `/srv/${host}`
     );
     return response.data;
   } catch (error) {
