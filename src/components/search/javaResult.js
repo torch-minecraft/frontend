@@ -44,6 +44,9 @@ export default function JavaResult(props) {
         fontSize={13}
         fontFamily="Minecraft"
         lineHeight={2}
+        sx={{
+          overflowY: "scroll",
+        }}
       >
         <MinecraftFormatted html={data.description.html} />
       </Box>
