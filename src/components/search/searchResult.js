@@ -71,7 +71,7 @@ export default function SearchResult() {
 
   const apiUrl =
     process.env.REACT_APP_API_URL +
-    "api/v1/status/" +
+    "status/" +
     serverType +
     "?host=" +
     ip +
@@ -177,17 +177,16 @@ export default function SearchResult() {
               borderRadius={1}
               borderColor="search.main"
               marginTop={4}
-              padding={2}
             >
               <Button
                 fullWidth
                 color="custom"
                 sx={{
-                  backgroundColor: "search.background",
                   textTransform: "none",
                   padding: 2,
                   display: "flex",
                   alignItems: "center",
+                  backgroundColor: "search.background",
                 }}
                 onClick={() => {
                   setApiDropdown(!apiDropdown);
@@ -207,52 +206,52 @@ export default function SearchResult() {
                   {apiDropdown ? <ArrowDropUp /> : <ArrowDropDown />}
                 </Box>
               </Button>
-              <Box display={apiDropdown === true ? "block" : "none"}>
+              <Box display={apiDropdown ? "block" : "none"}>
                 <Divider
                   sx={{
-                    marginTop: 2,
                     marginBottom: 2,
                   }}
                 />
                 <Box
-                  backgroundColor="search.background"
-                  padding={1.5}
-                  borderRadius={1}
                   display="flex"
                   alignItems="center"
-                  justifyContent="space-between"
+                  justifyContent="flex-start"
+                  paddingLeft={2}
+                  borderRadius={1.5}
                 >
-                  <Box
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="flex-start"
+                  <Chip
+                    size="small"
+                    label="GET"
+                    color="success"
+                    sx={{
+                      fontWeight: "bold",
+                    }}
+                  />
+                  <Typography
+                    component="p"
+                    marginLeft={1}
+                    color="custom.main"
                   >
-                    <Chip
-                      size="small"
-                      label="GET"
-                      color="success"
-                      sx={{
-                        fontWeight: "bold",
-                      }}
-                    />
-                    <Typography
-                      component="p"
-                      fontFamily="Arial"
-                      marginLeft={1}
-                      color="custom.main"
-                    >
-                      {apiUrl}
-                    </Typography>
-                  </Box>
-                  <Copy text={apiUrl} />
+                    {apiUrl}
+                  </Typography>
                 </Box>
-                <Box component="div" position="relative">
+                <Divider
+                  sx={{
+                    marginTop: 2,
+                  }}
+                />
+                <Box
+                  component="div"
+                  position="relative"
+                  padding={2}
+                  paddingTop={1}
+                >
                   <Copy
                     text={JSON.stringify(data, null, 4)}
                     sx={{
                       position: "absolute",
-                      right: 11,
-                      top: 15,
+                      right: 25,
+                      top: 40,
                       zIndex: 1,
                     }}
                   />

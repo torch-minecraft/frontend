@@ -1,9 +1,11 @@
 import {
   Box,
   Button,
+  Chip,
   Container,
   Divider,
   Stack,
+  Tooltip,
   Typography,
 } from "@mui/material";
 import Title from "./title";
@@ -12,7 +14,33 @@ import { ArrowDropDown, ArrowDropUp } from "@mui/icons-material";
 import Copy from "./util/copy";
 import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight";
 import { stackoverflowDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { useState } from "react";
+import React, { useState } from "react";
+import { endpoints, sections } from "../app/api";
+
+const apiUrl = process.env.REACT_APP_API_URL;
+
+const specialWordStyle = {
+  color: "#f9b31f",
+  fontFamily: "monospace",
+};
+
+function format(string) {
+  const regex = /(-{)(.*?)(}-)/g;
+  const words = string.split(regex);
+  return words.map((word, index) => {
+    if (word === "-{" || word === "}-") {
+      return null;
+    }
+    if (index > 0 && words[index - 1] === "-{") {
+      return (
+        <span key={index} style={specialWordStyle}>
+          {word}
+        </span>
+      );
+    }
+    return <React.Fragment key={index}>{word}</React.Fragment>;
+  });
+}
 
 function APISection(props) {
   return (
@@ -20,22 +48,21 @@ function APISection(props) {
       <Box
         component="h3"
         color="inherit"
-        fontSize={30}
-        marginTop={6}
+        fontSize={25}
+        marginTop={5}
         marginBottom={1}
       >
         {props.title}
       </Box>
       <Divider marginBottom={1} />
-      <Box component="p" color="inherit" fontSize={21}>
-        {props.description}
+      <Box component="p" color="inherit" fontSize={18}>
+        {format(props.description)}
       </Box>
     </>
   );
 }
 
 function APIEndpoint(props) {
-  const { title, body } = props;
   const [open, setOpen] = useState(false);
 
   return (
@@ -44,11 +71,11 @@ function APIEndpoint(props) {
         fullWidth
         color="custom"
         sx={{
-          backgroundColor: "search.background",
           textTransform: "none",
           padding: 2,
           display: "flex",
           alignItems: "center",
+          backgroundColor: "search.background",
         }}
         onClick={() => {
           setOpen(!open);
@@ -62,27 +89,66 @@ function APIEndpoint(props) {
             width: "100%",
           }}
         >
-          <Typography color="white" fontWeight="bold">
-            {title}
+          <Typography color="white" fontWeight="bold" fontSize={17}>
+            {props.title}
           </Typography>
           {open ? <ArrowDropUp /> : <ArrowDropDown />}
         </Box>
       </Button>
-      <Box
-        display={open ? "flex" : "none"}
-        padding={2}
-        alignItems="center"
-        backgroundColor="search.background"
-        borderTop={1}
-        borderColor="search.main"
-      >
-        <Box component="div" position="relative">
+      <Box display={open ? "block" : "none"}>
+        <Divider
+          sx={{
+            marginBottom: 2,
+          }}
+        />
+        <Box component="p" color="inherit" fontSize={16} paddingLeft={2}>
+          {format(props.description)}
+        </Box>
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="flex-start"
+          paddingLeft={2}
+          borderRadius={1.5}
+        >
+          <Chip
+            size="small"
+            label="GET"
+            color="success"
+            sx={{
+              fontWeight: "bold",
+              fontSize: 14,
+            }}
+          />
+          <Typography
+            component="p"
+            marginLeft={1}
+            color="custom.main"
+            fontSize={16}
+          >
+            {apiUrl + props.route}
+          </Typography>
+        </Box>
+        <Divider
+          sx={{
+            marginTop: 2,
+          }}
+        />
+        <Typography
+          component="h1"
+          fontWeight="bold"
+          fontSize={18}
+          padding={2}
+        >
+          Example Response
+        </Typography>
+        <Box component="div" position="relative" padding={2} marginTop={-4}>
           <Copy
-            text={JSON.stringify(body, null, 4)}
+            text={JSON.stringify(props.response, null, 4)}
             sx={{
               position: "absolute",
-              right: 11,
-              top: 15,
+              right: 25,
+              top: 40,
               zIndex: 1,
             }}
           />
@@ -96,7 +162,7 @@ function APIEndpoint(props) {
             language="json"
             style={stackoverflowDark}
           >
-            {JSON.stringify(body, null, 4)}
+            {JSON.stringify(props.response, null, 4)}
           </SyntaxHighlighter>
         </Box>
       </Box>
@@ -108,20 +174,31 @@ export default function API() {
   return (
     <Container maxWidth="xl">
       <Title />
-      <Info title="API" subtitle="Information about how to use the Torch API" />
-      <APISection
-        title="Standards"
-        description="The Torch API is built to be as simple as possible. It uses the REST standard, and returns JSON data. Only endpoints using the GET method are supported. When working with the Torch API, you'll never have to use any other method."
+      <Info
+        title="API"
+        subtitle="Documentation on how to use the Torch API in your project"
       />
-      <APISection
-        title="Caching"
-        description="The Torch API utilizes short cache times. This means that if you make a request to an endpoint, and then make the same request some time later before the cache has expired, you'll get the same data as a response. This is to reduce the load on our servers, and to make sure that we can provide the best experience possible. Additionally, the response you receive will contain timestamp data on when the cache was obtained, and when it expires."
-      />
+      {sections.map((section) => (
+        <APISection
+          key={section.title}
+          title={section.title}
+          description={section.description}
+        />
+      ))}
       <Info
         title="Endpoints"
         subtitle="A list of all the endpoints available in the Torch API"
       />
-      <APIEndpoint title="Java Server Status" body="{}" />
+      {endpoints.map((endpoint) => (
+        <APIEndpoint
+          key={endpoint.title}
+          title={endpoint.title}
+          route={endpoint.route}
+          example={endpoint.example}
+          description={endpoint.description}
+          response={endpoint.response}
+        />
+      ))}
     </Container>
   );
 }
