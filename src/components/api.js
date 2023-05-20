@@ -6,7 +6,7 @@ import {
   Container,
   Divider,
   Stack,
-  Typography
+  Typography,
 } from "@mui/material";
 import React, { useState } from "react";
 import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight";

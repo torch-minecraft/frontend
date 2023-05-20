@@ -1,7 +1,4 @@
-import {
-  ArrowDropDown,
-  ArrowDropUp
-} from "@mui/icons-material";
+import { ArrowDropDown, ArrowDropUp } from "@mui/icons-material";
 import { Box, Button, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import { useState } from "react";

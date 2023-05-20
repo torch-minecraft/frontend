@@ -63,7 +63,13 @@ function Header() {
               TORCH
             </Typography>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, alignItems: "center" }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex" },
+              alignItems: "center",
+            }}
+          >
             {pages.map((page) => (
               <Button
                 key={page}

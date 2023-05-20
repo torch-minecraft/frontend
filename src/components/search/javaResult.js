@@ -89,22 +89,18 @@ export default function JavaResult(props) {
             borderRadius={1}
             paddingLeft={4}
           >
-            {data.players.sample.map(
-              (player) => (
-                (
-                  <Typography
-                    component="p"
-                    fontFamily="Minecraft"
-                    fontSize={13}
-                    key={player.id}
-                    lineHeight={2}
-                    letterSpacing={0.5}
-                  >
-                    <MinecraftFormatted html={player.name.html} />
-                  </Typography>
-                )
-              )
-            )}
+            {data.players.sample.map((player) => (
+              <Typography
+                component="p"
+                fontFamily="Minecraft"
+                fontSize={13}
+                key={player.id}
+                lineHeight={2}
+                letterSpacing={0.5}
+              >
+                <MinecraftFormatted html={player.name.html} />
+              </Typography>
+            ))}
           </Box>
         )}
       </Box>

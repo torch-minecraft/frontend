@@ -61,10 +61,7 @@ export default function Home() {
                   justifyContent: "flex-start",
                 }}
               >
-                <Box
-                  display="flex"
-                  alignItems="center"
-                >
+                <Box display="flex" alignItems="center">
                   <Chip
                     color={type === "java" ? "primary" : "secondary"}
                     label={type}

@@ -24,6 +24,6 @@ export const theme = createTheme({
 
     w: {
       main: "#ffffff",
-    }
+    },
   },
 });
