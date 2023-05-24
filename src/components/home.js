@@ -108,7 +108,7 @@ export default function Home() {
     <Container maxWidth="xl">
       <Search type="Java" ip="" />
       <Box component="h2" color="inherit">
-        Try it out with some samples!
+        Explore some of the hottest servers right now!
       </Box>
       <Grid2 container spacing={2}>
         {serversDisplay(javaServers, "java")}
