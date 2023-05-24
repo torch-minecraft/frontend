@@ -12,7 +12,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 
-const pages = ["FAQ", "API"];
+const pages = ["faq", "api"];
 
 function Header() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -55,12 +55,12 @@ function Header() {
                 mr: 2,
                 fontFamily: "monospace",
                 fontWeight: 700,
-                letterSpacing: ".3rem",
+                letterSpacing: 1,
                 color: "inherit",
                 textDecoration: "none",
               }}
             >
-              TORCH
+              torch
             </Typography>
           </Box>
           <Box
@@ -80,6 +80,7 @@ function Header() {
                   display: "block",
                   textAlign: "center",
                   fontWeight: "bold",
+                  textTransform: "none",
                 }}
                 href={page === "Home" ? "/" : `/${page.toLowerCase()}`}
               >
